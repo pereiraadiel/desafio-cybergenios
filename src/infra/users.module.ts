@@ -1,4 +1,3 @@
-import { GetCustomerService } from '@usecases/users/get-customer/get-customer.service';
 import { Module } from '@nestjs/common';
 import { PrismaService } from './config/PrismaService';
 
@@ -10,6 +9,8 @@ import { UnassignAdminController } from './controllers/users/unassign-admin/unas
 import { UpdateCustomerController } from './controllers/users/update-customer/update-customer.controller';
 
 import { CreateCustomerService } from '@usecases/users/create-customer/create-customer.service';
+import { GetCustomerService } from '@usecases/users/get-customer/get-customer.service';
+import { UpdateCustomerService } from '@usecases/users/update-customer/update-customer.service';
 import { DeleteCustomerService } from '@usecases/users/delete-customer/delete-customer.service';
 
 @Module({
@@ -25,6 +26,7 @@ import { DeleteCustomerService } from '@usecases/users/delete-customer/delete-cu
     CreateCustomerService,
     DeleteCustomerService,
     GetCustomerService,
+    UpdateCustomerService,
     PrismaService,
   ],
 })
