@@ -9,6 +9,7 @@ import { UnassignAdminController } from './controllers/users/unassign-admin/unas
 import { UpdateCustomerController } from './controllers/users/update-customer/update-customer.controller';
 
 import { CreateCustomerService } from '@usecases/users/create-customer/create-customer.service';
+import { DeleteCustomerService } from '@usecases/users/delete-customer/delete-customer.service';
 
 @Module({
   controllers: [
@@ -19,6 +20,6 @@ import { CreateCustomerService } from '@usecases/users/create-customer/create-cu
     UnassignAdminController,
     UpdateCustomerController,
   ],
-  providers: [CreateCustomerService, PrismaService],
+  providers: [CreateCustomerService, DeleteCustomerService, PrismaService],
 })
 export class UsersModule {}
