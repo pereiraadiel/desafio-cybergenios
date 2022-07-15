@@ -33,5 +33,6 @@ import { UnassignAdminService } from '@usecases/users/unassign-admin/unassign-ad
     UnassignAdminService,
     PrismaService,
   ],
+  exports: [GetCustomerService],
 })
 export class UsersModule {}
