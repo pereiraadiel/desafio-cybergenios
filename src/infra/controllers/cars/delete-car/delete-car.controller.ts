@@ -1,4 +1,12 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Delete, Param } from '@nestjs/common';
+import { DeleteCarService } from '@usecases/cars/delete-car/delete-car.service';
 
-@Controller('delete-car')
-export class DeleteCarController {}
+@Controller('cars')
+export class DeleteCarController {
+  constructor(private readonly deleteCarService: DeleteCarService) {}
+
+  @Delete(':id')
+  handle(@Param('id') id: string) {
+    return this.deleteCarService.execute(id);
+  }
+}
