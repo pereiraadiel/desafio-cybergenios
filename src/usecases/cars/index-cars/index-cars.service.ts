@@ -6,7 +6,7 @@ import { CarFilterDTO } from '@interfaces/car-filter.dto';
 export class IndexCarsService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async execute({ name, brand, page = 0, take = 10 }: CarFilterDTO) {
+  async execute({ name, brand, page, take }: CarFilterDTO) {
     const skip = take * page;
     const cars = await this.prisma.car.findMany({
       where: {
@@ -17,8 +17,8 @@ export class IndexCarsService {
           contains: brand,
         },
       },
-      skip,
-      take,
+      skip: skip || 0,
+      take: take || 10,
     });
     return cars;
   }
