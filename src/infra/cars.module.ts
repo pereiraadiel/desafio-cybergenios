@@ -4,6 +4,9 @@ import { DeleteCarController } from './controllers/cars/delete-car/delete-car.co
 import { GetCarController } from './controllers/cars/get-car/get-car.controller';
 import { UpdateCarController } from './controllers/cars/update-car/update-car.controller';
 
+import { PrismaService } from '@infra/config/PrismaService';
+import { CreateCarService } from '@usecases/cars/create-car/create-car.service';
+
 @Module({
   controllers: [
     CreateCarController,
@@ -11,6 +14,6 @@ import { UpdateCarController } from './controllers/cars/update-car/update-car.co
     UpdateCarController,
     DeleteCarController,
   ],
-  providers: [],
+  providers: [CreateCarService, PrismaService],
 })
 export class CarsModule {}
