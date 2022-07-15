@@ -1,4 +1,5 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { CreateCarService } from '@usecases/cars/create-car/create-car.service';
 import { CarDTO } from '@interfaces/car.dto';
 
@@ -6,6 +7,7 @@ import { CarDTO } from '@interfaces/car.dto';
 export class CreateCarController {
   constructor(private readonly createCarService: CreateCarService) {}
 
+  @UseGuards(AuthGuard('jwt'))
   @Post()
   handle(@Body() data: CarDTO) {
     return this.createCarService.execute(data);
