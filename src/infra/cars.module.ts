@@ -9,6 +9,7 @@ import { PrismaService } from '@infra/config/PrismaService';
 import { CreateCarService } from '@usecases/cars/create-car/create-car.service';
 import { GetCarService } from '@usecases/cars/get-car/get-car.service';
 import { IndexCarsService } from '@usecases/cars/index-cars/index-cars.service';
+import { UpdateCarService } from '@usecases/cars/update-car/update-car.service';
 import { DeleteCarService } from '@usecases/cars/delete-car/delete-car.service';
 
 @Module({
@@ -24,6 +25,7 @@ import { DeleteCarService } from '@usecases/cars/delete-car/delete-car.service';
     GetCarService,
     IndexCarsService,
     DeleteCarService,
+    UpdateCarService,
     PrismaService,
   ],
 })
