@@ -1,4 +1,12 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
+import { GetCustomerService } from '@usecases/users/get-customer/get-customer.service';
 
-@Controller('get-customer')
-export class GetCustomerController {}
+@Controller('users')
+export class GetCustomerController {
+  constructor(private readonly getCustomerService: GetCustomerService) {}
+
+  @Get(':id')
+  handle(@Param('id') id: string) {
+    return this.getCustomerService.execute(id);
+  }
+}

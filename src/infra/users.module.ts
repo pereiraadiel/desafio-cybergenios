@@ -1,3 +1,4 @@
+import { GetCustomerService } from '@usecases/users/get-customer/get-customer.service';
 import { Module } from '@nestjs/common';
 import { PrismaService } from './config/PrismaService';
 
@@ -20,6 +21,11 @@ import { DeleteCustomerService } from '@usecases/users/delete-customer/delete-cu
     UnassignAdminController,
     UpdateCustomerController,
   ],
-  providers: [CreateCustomerService, DeleteCustomerService, PrismaService],
+  providers: [
+    CreateCustomerService,
+    DeleteCustomerService,
+    GetCustomerService,
+    PrismaService,
+  ],
 })
 export class UsersModule {}
