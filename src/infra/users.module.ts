@@ -13,6 +13,7 @@ import { GetCustomerService } from '@usecases/users/get-customer/get-customer.se
 import { UpdateCustomerService } from '@usecases/users/update-customer/update-customer.service';
 import { DeleteCustomerService } from '@usecases/users/delete-customer/delete-customer.service';
 import { AssignAdminService } from '@usecases/users/assign-admin/assign-admin.service';
+import { UnassignAdminService } from '@usecases/users/unassign-admin/unassign-admin.service';
 
 @Module({
   controllers: [
@@ -29,6 +30,7 @@ import { AssignAdminService } from '@usecases/users/assign-admin/assign-admin.se
     GetCustomerService,
     UpdateCustomerService,
     AssignAdminService,
+    UnassignAdminService,
     PrismaService,
   ],
 })
