@@ -7,13 +7,13 @@
 ## 🚧 Lista de Tarefas
 
 - [x] CRUD usuários (clientes | admins)
-- [ ] CRUD carros
+- [x] CRUD carros
 - [ ] Autenticação de usuários
-- [ ] Atribuição e desatribuição de cargo admin
+- [x] Atribuição e desatribuição de cargo admin
 - [ ] middleware para validar os dados recebidos via REST API
 - [ ] middleware para validar autenticação e restringir acessos
 - [ ] testes unitários e de integração
-- [ ] <i>Dockerizar</i> a aplicação 
+- [ ] <i>Dockerizar</i> a aplicação
       <br/>
       <br/>
 
