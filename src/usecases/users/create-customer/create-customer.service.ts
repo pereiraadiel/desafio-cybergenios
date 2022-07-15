@@ -1,6 +1,7 @@
-import { UserDTO } from '@interfaces/user.dto';
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
+import { UserDTO } from '@interfaces/user.dto';
 import { PrismaService } from '@infra/config/PrismaService';
+import { hash } from '@utils/hash';
 
 @Injectable()
 export class CreateCustomerService {
@@ -32,7 +33,7 @@ export class CreateCustomerService {
     return this.prisma.user.create({
       data: {
         ...data,
-        password: '',
+        password: await hash(data.password),
       },
     });
   }
