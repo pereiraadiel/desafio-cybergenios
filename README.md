@@ -8,10 +8,10 @@
 
 - [x] CRUD usuários (clientes | admins)
 - [x] CRUD carros
-- [ ] Autenticação de usuários
+- [x] Autenticação de usuários
 - [x] Atribuição e desatribuição de cargo admin
-- [ ] middleware para validar os dados recebidos via REST API
-- [ ] middleware para validar autenticação e restringir acessos
+- [x] middleware para validar os dados recebidos via REST API
+- [x] middleware para validar autenticação e restringir acessos
 - [ ] testes unitários e de integração
 - [ ] <i>Dockerizar</i> a aplicação
       <br/>
