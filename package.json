@@ -18,11 +18,12 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "pretest:e2e": "DATABASE_URL=postgres://admin:admin@localhost:5433/cybergenios yarn seed:test",
+    "test:e2e": "DATABASE_URL=postgres://admin:admin@localhost:5433/cybergenios jest --config ./test/jest-e2e.json",
     "migrate:dev": "npx prisma migrate dev",
     "migrate:test": "npx prisma migrate dev",
     "seed:dev": "node prisma/seed.js",
-    "seed:test": "node prisma/seed.js"
+    "seed:test": "node prisma/seed-test.js"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
