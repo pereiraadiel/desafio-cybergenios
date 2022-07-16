@@ -36,3 +36,8 @@ lerna-debug.log*
 
 # Environment Variables
 .env
+.env.dev
+.env.test
+
+# DB
+pgdata

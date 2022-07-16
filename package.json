@@ -19,7 +19,10 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "seed": "node prisma/seed.js"
+    "migrate:dev": "npx prisma migrate dev",
+    "migrate:test": "npx prisma migrate dev",
+    "seed:dev": "node prisma/seed.js",
+    "seed:test": "node prisma/seed.js"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
@@ -74,6 +77,16 @@
       "json",
       "ts"
     ],
+    "moduleNameMapper": {
+      "^@config/(.*)$": "<rootDir>/config/$1",
+      "^@core/(.*)$": "<rootDir>/core/$1",
+      "^@domain/(.*)$": "<rootDir>/domain/$1",
+      "^@usecases/(.*)$": "<rootDir>/usecases/$1",
+      "^@interfaces/(.*)$": "<rootDir>/interfaces/$1",
+      "^@application/(.*)$": "<rootDir>/application/$1",
+      "^@infra/(.*)$": "<rootDir>/infra/$1",
+      "^@utils/(.*)$": "<rootDir>/utils/$1"
+    },
     "rootDir": "src",
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
