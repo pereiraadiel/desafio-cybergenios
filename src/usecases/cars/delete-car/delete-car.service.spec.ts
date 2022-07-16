@@ -18,6 +18,7 @@ describe('DeleteCarService', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [DeleteCarService, PrismaService],
     }).compile();
+
     prisma = module.get<PrismaService>(PrismaService);
     prisma.car.findUnique = jest.fn().mockReturnValueOnce(mock);
     prisma.car.delete = jest.fn().mockReturnValueOnce(mock);
