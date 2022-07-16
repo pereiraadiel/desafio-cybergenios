@@ -26,8 +26,8 @@ describe('GetCarService', () => {
   });
 
   it('should be able to get car', async () => {
-    const user = await service.execute(mock.id);
-    expect(user).toMatchObject(mock);
+    const car = await service.execute(mock.id);
+    expect(car).toMatchObject(mock);
   });
 
   it('should not be able to get car thats does not exist', async () => {
