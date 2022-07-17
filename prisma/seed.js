@@ -5,6 +5,8 @@ const prisma = new PrismaClient();
 
 const load = async () => {
   try {
+    await prisma.user.deleteMany();
+    await prisma.car.deleteMany();
     users.forEach(async (user) => {
       await prisma.user.create({
         data: user,
