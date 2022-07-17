@@ -1,14 +1,16 @@
-import { AppModule } from '@infra/app.module';
 import { INestApplication } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { TestingModule, Test } from '@nestjs/testing';
 import * as request from 'supertest';
+import { AppModule } from '@infra/app.module';
+import { PrismaService } from '@infra/config/PrismaService';
 
 describe('get-user (e2e)', () => {
   let app: INestApplication;
   let accessToken = '';
   const jwt = new JwtService();
   let payload;
+  const prisma = new PrismaService();
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
@@ -47,5 +49,6 @@ describe('get-user (e2e)', () => {
 
   afterAll(async () => {
     await app.close();
+    prisma.$disconnect();
   });
 });

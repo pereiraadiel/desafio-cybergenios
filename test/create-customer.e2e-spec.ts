@@ -1,4 +1,5 @@
 import { AppModule } from '@infra/app.module';
+import { PrismaService } from '@infra/config/PrismaService';
 import { INestApplication } from '@nestjs/common';
 import { TestingModule, Test } from '@nestjs/testing';
 import * as request from 'supertest';
@@ -6,6 +7,7 @@ import * as request from 'supertest';
 describe('create-customer (e2e)', () => {
   let app: INestApplication;
   let accessToken = '';
+  const prisma = new PrismaService();
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
@@ -82,5 +84,6 @@ describe('create-customer (e2e)', () => {
 
   afterAll(async () => {
     await app.close();
+    prisma.$disconnect();
   });
 });

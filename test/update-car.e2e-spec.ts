@@ -2,12 +2,14 @@ import { INestApplication } from '@nestjs/common';
 import { TestingModule, Test } from '@nestjs/testing';
 import * as request from 'supertest';
 import { AppModule } from '@infra/app.module';
+import { PrismaService } from '@infra/config/PrismaService';
 import { CarDTO } from '@interfaces/car.dto';
 
 describe('update-car (e2e)', () => {
   let app: INestApplication;
   let accessToken = '';
   let cars: CarDTO[];
+  const prisma = new PrismaService();
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
@@ -67,5 +69,6 @@ describe('update-car (e2e)', () => {
 
   afterAll(async () => {
     await app.close();
+    prisma.$disconnect();
   });
 });
