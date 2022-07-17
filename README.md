@@ -12,7 +12,7 @@
 - [x] Atribuição e desatribuição de cargo admin
 - [x] middleware para validar os dados recebidos via REST API
 - [x] middleware para validar autenticação e restringir acessos
-- [ ] testes unitários e de integração
+- [x] testes unitários e de integração
 - [x] <i>Dockerizar</i> a aplicação
       <br/>
       <br/>
@@ -39,10 +39,19 @@
 
 ## ⚡ Executar o projeto
 
+<strong>renomeie o arquivo .env.example para .env.dev na raiz do projeto</strong>
+
 <p>Para executar esse projeto utilizando o docker</p>
 
 ```sh
   docker compose up -d
+```
+
+<p>o script de inicialização leva cerca de 1 minuto para concluir as migrations e popular o banco de dados com os dados iniciais.
+verifique se a API já esta pronta para receber conexões executando:</p>
+
+```sh
+  docker logs cybergenios
 ```
 
 <p>a aplicação estará rodando em <a href="http://localhost:3000">localhost:3000</a> e pode ser acessada utilizando o <a href="https://insomnia.rest/download">Insomnia</a> ou outro cliente REST</p>
