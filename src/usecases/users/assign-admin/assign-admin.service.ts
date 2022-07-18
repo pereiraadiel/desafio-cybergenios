@@ -14,7 +14,7 @@ export class AssignAdminService {
     if (!user)
       throw new HttpException('user does not exist', HttpStatus.BAD_REQUEST);
 
-    return await this.prisma.user.update({
+    const customer = await this.prisma.user.update({
       where: {
         id,
       },
@@ -22,5 +22,7 @@ export class AssignAdminService {
         role: 'admin',
       },
     });
+    customer.password = undefined;
+    return customer;
   }
 }

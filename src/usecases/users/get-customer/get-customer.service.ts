@@ -18,6 +18,7 @@ export class GetCustomerService {
         HttpStatus.BAD_REQUEST,
       );
 
+    customer.password = undefined;
     return customer;
   }
 }

@@ -20,11 +20,13 @@ export class UpdateCustomerService {
       );
     }
 
-    return await this.prisma.user.update({
+    const customer = await this.prisma.user.update({
       where: {
         id,
       },
       data,
     });
+    customer.password = undefined;
+    return customer;
   }
 }

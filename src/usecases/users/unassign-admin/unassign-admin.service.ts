@@ -14,7 +14,7 @@ export class UnassignAdminService {
     if (!user)
       throw new HttpException('user does not exist', HttpStatus.BAD_REQUEST);
 
-    return await this.prisma.user.update({
+    const customer = await this.prisma.user.update({
       where: {
         id,
       },
@@ -22,5 +22,6 @@ export class UnassignAdminService {
         role: 'customer',
       },
     });
+    return customer;
   }
 }

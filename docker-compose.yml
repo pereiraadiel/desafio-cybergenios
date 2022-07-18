@@ -14,8 +14,8 @@ services:
      - cybergenios-net
     healthcheck:
       test: "pg_isready -U postgres -d cybergenios"
-      interval: 5s
-      timeout: 3s
+      interval: 10s
+      timeout: 5s
       retries: 3
   app:
     container_name: cybergenios

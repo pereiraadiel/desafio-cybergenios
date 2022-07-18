@@ -30,11 +30,13 @@ export class CreateCustomerService {
       );
     }
 
-    return this.prisma.user.create({
+    const customer = await this.prisma.user.create({
       data: {
         ...data,
         password: await hash(data.password),
       },
     });
+    customer.password = undefined;
+    return customer;
   }
 }
